@@ -21,7 +21,8 @@
                 error: 'error',
                 info: 'info',
                 success: 'success',
-                warning: 'warning'
+                warning: 'warning',
+                loading: 'loading'
             };
 
             var toastr = {
@@ -34,7 +35,8 @@
                 subscribe: subscribe,
                 success: success,
                 version: '2.1.3',
-                warning: warning
+                warning: warning,
+                loading: loading
             };
 
             var previousToast;
@@ -93,6 +95,16 @@
                 return notify({
                     type: toastType.warning,
                     iconClass: getOptions().iconClasses.warning,
+                    message: message,
+                    optionsOverride: optionsOverride,
+                    title: title
+                });
+            }
+
+            function loading(message, title, optionsOverride) {
+                return notify({
+                    type: toastType.loading,
+                    iconClass: getOptions().iconClasses.loading,
                     message: message,
                     optionsOverride: optionsOverride,
                     title: title
@@ -175,7 +187,8 @@
                         error: 'toast-error',
                         info: 'toast-info',
                         success: 'toast-success',
-                        warning: 'toast-warning'
+                        warning: 'toast-warning',
+                        loading: 'toast-loading'
                     },
                     iconClass: 'toast-info',
                     positionClass: 'toast-top-right',
